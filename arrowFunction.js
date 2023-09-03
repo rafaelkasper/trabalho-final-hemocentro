@@ -1,14 +1,14 @@
 /*===== SISTEMA DE CADASTRO DE DOADORES DE SANGUE =====*/
-function menu() {
-  var opcao = Number(
+const menu = () => {
+  const opcao = Number(
     prompt(`
-    ===== SISTEMA DE CADASTRO DE DOADORES DE SANGUE =====
-    1. Cadastrar doador
-    2. Listar doadores
-    3. Buscar doador por tipo sanguíneo
-    4. Buscar doador por data da última doação
-    5. Sair
-    Escolha uma opção:`)
+      ===== SISTEMA DE CADASTRO DE DOADORES DE SANGUE =====
+      1. Cadastrar doador
+      2. Listar doadores
+      3. Buscar doador por tipo sanguíneo
+      4. Buscar doador por data da última doação
+      5. Sair
+      Escolha uma opção:`)
   );
 
   switch (opcao) {
@@ -31,16 +31,16 @@ function menu() {
       alert("Opção inválida. Tente novamente.");
       menu();
   }
-}
+};
 
-var arrayDoadores = [];
+const arrayDoadores = [];
 
-function cadastrarDoador() {
+const cadastrarDoador = () => {
   nome = prompt("Qual é o seu nome?").toUpperCase();
   idade = prompt("Qual a sua idade?");
   peso = prompt("Qual é o seu peso?");
-  tipoSanguineo = prompt("Qual é o seu tipo sanguineo?").toUpperCase();
-  ultimaDoacao = prompt("Qual a data da sua última doacao? (dd/mm/aaaa)");
+  tipoSanguineo = prompt("Qual é o seu tipo sanguíneo?").toUpperCase();
+  ultimaDoacao = prompt("Qual é a data da sua última doação? (dd/mm/aaaa)");
 
   const doador = {
     nome: nome,
@@ -52,9 +52,9 @@ function cadastrarDoador() {
 
   arrayDoadores.push(doador);
   menu();
-}
+};
 
-function listarDoadores() {
+const listarDoadores = () => {
   if (arrayDoadores.length === 0) {
     alert("Nenhum doador cadastrado.");
     menu();
@@ -69,21 +69,21 @@ function listarDoadores() {
       );
     }
     const retornarDoadores = prompt(`
-    ----------------------
-    LISTAGEM DE DOADORES:
-    ----------------------
-    NOME             | IDADE | PESO | TIPO SANGUINEO | ÚLTIMA DOAÇÃO
-    ${listarDoadores}\n
-
-    Digite qualquer tecla para continuar:`);
+      ----------------------
+      LISTAGEM DE DOADORES:
+      ----------------------
+      NOME             | IDADE | PESO | TIPO SANGUINEO | ÚLTIMA DOAÇÃO
+      ${listarDoadores}\n
+  
+      Digite qualquer tecla para continuar:`);
     if (retornarDoadores !== null) {
       menu();
     }
   }
-}
+};
 
-function buscarTipoSangue() {
-  const tipo = prompt("Digite o tipo sanguine desejado").toUpperCase();
+const buscarTipoSangue = () => {
+  const tipo = prompt("Digite o tipo sanguíneo desejado").toUpperCase();
   const doadoresDisponiveis = [];
 
   for (let i = 0; i < arrayDoadores.length; i++) {
@@ -99,13 +99,13 @@ function buscarTipoSangue() {
   }
   if (doadoresDisponiveis.length > 0) {
     const retornarDoadores = prompt(`
-    ----------------------
-    RESULTADO DA BUSCA:
-    ----------------------
-    NOME             | IDADE | PESO | TIPO SANGUINEO | ÚLTIMA DOAÇÃO
-    ${doadoresDisponiveis}
-  
-    Digite qualquer tecla para continuar:`);
+      ----------------------
+      RESULTADO DA BUSCA:
+      ----------------------
+      NOME             | IDADE | PESO | TIPO SANGUINEO | ÚLTIMA DOAÇÃO
+      ${doadoresDisponiveis}
+    
+      Digite qualquer tecla para continuar:`);
     if (retornarDoadores !== null) {
       menu();
     }
@@ -113,9 +113,9 @@ function buscarTipoSangue() {
     alert("Nenhum doador cadastrado.");
     menu();
   }
-}
+};
 
-function buscarPorData() {
+const buscarPorData = () => {
   const data = prompt("Digite a data desejada (dd/mm/aaaa)");
 
   const doadoresDisponiveis = [];
@@ -133,13 +133,13 @@ function buscarPorData() {
   }
   if (doadoresDisponiveis.length > 0) {
     const retornarDoadores = prompt(`
-    ----------------------
-    RESULTADO DA BUSCA:
-    ----------------------
-    NOME             | IDADE | PESO | TIPO SANGUINEO | ÚLTIMA DOAÇÃO
-    ${doadoresDisponiveis} 
-  
-    Digite qualquer tecla para continuar:`);
+      ----------------------
+      RESULTADO DA BUSCA:
+      ----------------------
+      NOME             | IDADE | PESO | TIPO SANGUINEO | ÚLTIMA DOAÇÃO
+      ${doadoresDisponiveis} 
+    
+      Digite qualquer tecla para continuar:`);
 
     if (retornarDoadores !== null) {
       menu();
@@ -148,6 +148,6 @@ function buscarPorData() {
     alert("Nenhum doador cadastrado.");
     menu();
   }
-}
+};
 
 menu();
