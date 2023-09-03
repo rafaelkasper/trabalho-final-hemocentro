@@ -68,14 +68,20 @@ function listarDoadores() {
         )}| ${tipoSanguineo.padEnd(28)}| ${ultimaDoacao}`
       );
     }
-    const retornarDoadores = prompt(`
-    ----------------------
+
+    let lista = `----------------------
     LISTAGEM DE DOADORES:
     ----------------------
-    NOME             | IDADE | PESO | TIPO SANGUINEO | ÚLTIMA DOAÇÃO
-    ${listarDoadores}\n
+    NOME             | IDADE | PESO | TIPO SANGUINEO | ÚLTIMA DOAÇÃO`;
+    for (let doador of listarDoadores) {
+      lista += `\n${doador}`;
+    }
+    const retornarDoadores = prompt(
+      `
+        ${lista}
 
-    Digite qualquer tecla para continuar:`);
+    Digite qualquer tecla para continuar:`
+    );
     if (retornarDoadores !== null) {
       menu();
     }
@@ -98,13 +104,17 @@ function buscarTipoSangue() {
     }
   }
   if (doadoresDisponiveis.length > 0) {
+    let lista = ` 
+    ----------------------
+    LISTAGEM DE DOADORES:
+    ----------------------
+    NOME             | IDADE | PESO | TIPO SANGUINEO | ÚLTIMA DOAÇÃO`;
+    for (let doador of doadoresDisponiveis) {
+      lista += `\n${doador}`;
+    }
     const retornarDoadores = prompt(`
-    ----------------------
-    RESULTADO DA BUSCA:
-    ----------------------
-    NOME             | IDADE | PESO | TIPO SANGUINEO | ÚLTIMA DOAÇÃO
-    ${doadoresDisponiveis}
-  
+    ${lista}
+
     Digite qualquer tecla para continuar:`);
     if (retornarDoadores !== null) {
       menu();
@@ -132,15 +142,18 @@ function buscarPorData() {
     }
   }
   if (doadoresDisponiveis.length > 0) {
+    let lista = ` 
+    ----------------------
+    LISTAGEM DE DOADORES:
+    ----------------------
+    NOME             | IDADE | PESO | TIPO SANGUINEO | ÚLTIMA DOAÇÃO`;
+    for (let doador of doadoresDisponiveis) {
+      lista += `\n${doador}`;
+    }
     const retornarDoadores = prompt(`
-    ----------------------
-    RESULTADO DA BUSCA:
-    ----------------------
-    NOME             | IDADE | PESO | TIPO SANGUINEO | ÚLTIMA DOAÇÃO
-    ${doadoresDisponiveis} 
-  
-    Digite qualquer tecla para continuar:`);
+    ${lista}
 
+    Digite qualquer tecla para continuar:`);
     if (retornarDoadores !== null) {
       menu();
     }
