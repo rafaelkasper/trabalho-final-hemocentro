@@ -1,6 +1,6 @@
 /*===== SISTEMA DE CADASTRO DE DOADORES DE SANGUE =====*/
 function menu() {
-  var opcao = Number(
+  let opcao = Number(
     prompt(`
     ===== SISTEMA DE CADASTRO DE DOADORES DE SANGUE =====
     1. Cadastrar doador
@@ -33,7 +33,7 @@ function menu() {
   }
 }
 
-var arrayDoadores = [];
+const arrayDoadores = [];
 
 function cadastrarDoador() {
   nome = prompt("Qual é o seu nome?").toUpperCase();
